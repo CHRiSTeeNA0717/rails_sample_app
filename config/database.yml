@@ -11,15 +11,16 @@
 #
 default: &default
   adapter: mysql2
-  encoding: utf8mb4
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
 
 development:
   <<: *default
   database: raisetech_live8_sample_app_development
-  socket: /tmp/mysql.sock
+  socket: /var/lib/mysql.sock
+  username: <%= ENV['RAISETECH_LIVE8_SAMPLE_APP_DATABASE_USERNAME'] %>
+  password: <%= ENV['RAISETECH_LIVE8_SAMPLE_APP_DATABASE_PASSWORD'] %>
+  host: <%= ENV['RAISETECH_LIVE8_SAMPLE_APP_DATABASE_HOST'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,7 +28,10 @@ development:
 test:
   <<: *default
   database: raisetech_live8_sample_app_test
-  socket: /tmp/mysql.sock
+  socket: /var/lib/mysql.sock
+  username: <%= ENV['RAISETECH_LIVE8_SAMPLE_APP_DATABASE_USERNAME'] %>
+  password: <%= ENV['RAISETECH_LIVE8_SAMPLE_APP_DATABASE_PASSWORD'] %>
+  host: <%= ENV['RAISETECH_LIVE8_SAMPLE_APP_DATABASE_HOST'] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
