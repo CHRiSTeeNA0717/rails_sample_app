@@ -2,7 +2,7 @@ worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
 timeout 15
 preload_app true
 
-app_path = "/var/www/raisetech-live8-sample-app"
+app_path = "/var/www/rails_sample_app"
 pid_path = "#{app_path}/tmp/pids/unicorn.pid"
 listen_path = "#{app_path}/tmp/sockets/unicorn.sock"
 
