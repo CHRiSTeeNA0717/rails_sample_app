@@ -25,6 +25,6 @@ after_fork do |server, worker|
     ActiveRecord::Base.establish_connection
 end
 
-stderr_path File.expand_path('log/unicorn.log', '#{app_apth}')
-stdout_path File.expand_path('log/unicorn.log', '#{app_apth}')
+stderr_path File.expand_path('log/unicorn.log')
+stdout_path File.expand_path('log/unicorn.log')
 
