@@ -3,8 +3,8 @@ timeout 15
 preload_app true
 
 app_path = "/var/www/raisetech-live8-sample-app"
-listen '#{app_path}/log/unicorn.sock'
-pid    '#{app_path}/log/unicorn.pid'
+pid_path = "#{app_path}/tmp/pids/unicorn.pid"
+listen_path = "#{app_path}/tmp/sockets/unicorn.sock"
 
 before_fork do |server, worker|
   Signal.trap 'TERM' do
